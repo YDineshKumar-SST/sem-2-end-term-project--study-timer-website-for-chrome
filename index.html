@@ -7,6 +7,7 @@
     <title>FocusFlow | Task Manager & Floating Tracker</title>
 </head>
 <link rel="stylesheet" href="style.css">
+
 <body>
 
     <div class="app-container">
@@ -14,10 +15,11 @@
             <div class="current-task-label" id="timerLabel">No task selected</div>
             <div class="timer-display" id="display">00:00:00</div>
             <div class="timer-controls">
-                <button class="btn-icon" onclick="startTimer()">Start</button>
-                <button class="btn-icon" onclick="pauseTimer()">Pause</button>
-                <button class="btn-icon" onclick="resetTimer()">Reset</button>
-                <button class="btn-icon btn-mini" id="pipBtn">Mini Mode 📺</button>
+                <button class="btn-icon" onclick="startTimer()" title="Start the timer">Start</button>
+                <button class="btn-icon" onclick="pauseTimer()" title="Pause the timer">Pause</button>
+                <button class="btn-icon" onclick="resetTimer()" title="Reset the timer">Reset</button>
+                <button class="btn-icon btn-mini" id="pipBtn" title="Open timer in Picture-in-Picture mode">Mini Mode
+                    📺</button>
             </div>
         </div>
 
@@ -26,12 +28,13 @@
 
         <header style="text-align: center; margin-bottom: 20px;">
             <h1 style="color: white;">FocusFlow</h1>
+            <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Task Manager & Time Tracker</p>
         </header>
 
         <div class="input-section">
             <div class="input-row">
-                <input type="text" id="taskTitle" placeholder="Task description...">
-                <input type="date" id="dueDate">
+                <input type="text" id="taskTitle" placeholder="Task description..." maxlength="100" required>
+                <input type="date" id="dueDate" required>
                 <input type="time" id="dueTime">
             </div>
             <div class="input-row">
@@ -40,35 +43,45 @@
                     <option value="medium" selected>Medium Priority</option>
                     <option value="high">High Priority</option>
                 </select>
-                <input type="url" id="taskLink" placeholder="Working Link (Optional)">
+                <input type="url" id="taskLink" placeholder="Working Link (Optional)" maxlength="500">
             </div>
-            <button class="btn-add" onclick="addTaskFromInput()">Add Task</button>
+            <button class="btn-add" onclick="addTaskFromInput()" title="Add a new task">Add Task</button>
         </div>
 
         <div id="tasksContainer" class="task-list"></div>
 
         <div class="dev-terminal">
             <div class="terminal-header">
-                <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
             </div>
-             <div class="custom-nav"></div>
+            <div class="custom-nav"></div>
             <span class="terminal-label">// quick_access_links.json</span>
-             <div class="custom-nav"></div>
+            <div class="custom-nav"></div>
             <nav class="coding-nav">
-                <div onclick="autoTrack('GitHub', 'https://github.com')" class="code-btn btn-git"><span>git</span> commit -m "push"</div>
-                <div onclick="autoTrack('Stack Overflow', 'https://stackoverflow.com')" class="code-btn btn-stack"><span>stack</span> overflow</div>
-                <div onclick="autoTrack('Python Docs', 'https://www.python.org')" class="code-btn btn-py">import <span>python</span></div>
-                <div onclick="autoTrack('MDN JS', 'https://developer.mozilla.org')" class="code-btn btn-js">const <span>javascript</span></div>
-                <div onclick="autoTrack('C++ Ref', 'https://en.cppreference.com')" class="code-btn btn-cpp">std::<span>c++</span></div>
+                <div onclick="autoTrack('GitHub', 'https://github.com')" class="code-btn btn-git"
+                    title="Track time while using GitHub"><span>git</span> commit -m "push"</div>
+                <div onclick="autoTrack('Stack Overflow', 'https://stackoverflow.com')" class="code-btn btn-stack"
+                    title="Track time while using Stack Overflow"><span>stack</span> overflow</div>
+                <div onclick="autoTrack('Python Docs', 'https://www.python.org')" class="code-btn btn-py"
+                    title="Track time while reading Python documentation">import <span>python</span></div>
+                <div onclick="autoTrack('MDN JS', 'https://developer.mozilla.org')" class="code-btn btn-js"
+                    title="Track time while reading MDN JavaScript">const <span>javascript</span></div>
+                <div onclick="autoTrack('C++ Ref', 'https://en.cppreference.com')" class="code-btn btn-cpp"
+                    title="Track time while reading C++ reference">std::<span>c++</span></div>
             </nav>\
-             <div class="custom-nav"></div>
-               <span class="terminal-label">// quick video acess toll</span>
-                <div class="custom-nav">
-   
+            <div class="custom-nav"></div>
+            <span class="terminal-label">// quick video access tool</span>
+            <div class="custom-nav">
 
-                <a href="https://www.youtube.com/@coding_school4u/courses" target="_blank" class="code-btn btn-custom">learn css java script with school 4u</a>
-                <a href="https://www.youtube.com/watch?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w" target="_blank" class="code-btn btn-custom">learn html complete from code with harry</a>
-                <a href="#" target="_blank" class="code-btn btn-custom">Slot_3</a>
+
+                <a href="https://www.youtube.com/@coding_school4u/courses" target="_blank" class="code-btn btn-custom"
+                    title="Learn CSS and JavaScript">learn css java script with school 4u</a>
+                <a href="https://www.youtube.com/watch?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w"
+                    target="_blank" class="code-btn btn-custom" title="Learn HTML from Code with Harry">learn html
+                    complete from code with harry</a>
+                <a href="#" target="_blank" class="code-btn btn-custom" title="Reserved slot">Slot_3</a>
             </div>
         </div>
     </div>
