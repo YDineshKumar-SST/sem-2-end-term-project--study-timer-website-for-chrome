@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow | Task Manager & Floating Tracker</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+
+    <div class="app-container">
+        <div class="focus-session">
+            <div class="current-task-label" id="timerLabel">No task selected</div>
+            <div class="timer-display" id="display">00:00:00</div>
+            <div class="timer-controls">
+                <button class="btn-icon" onclick="startTimer()">Start</button>
+                <button class="btn-icon" onclick="pauseTimer()">Pause</button>
+                <button class="btn-icon" onclick="resetTimer()">Reset</button>
+                <button class="btn-icon btn-mini" id="pipBtn">Mini Mode 📺</button>
+            </div>
+        </div>
+
+        <canvas id="pipCanvas" width="300" height="150"></canvas>
+        <video id="pipVideo" autoplay muted></video>
+
+        <header style="text-align: center; margin-bottom: 20px;">
+            <h1 style="color: white;">FocusFlow</h1>
+        </header>
+
+        <div class="input-section">
+            <div class="input-row">
+                <input type="text" id="taskTitle" placeholder="Task description...">
+                <input type="date" id="dueDate">
+                <input type="time" id="dueTime">
+            </div>
+            <div class="input-row">
+                <select id="priority">
+                    <option value="low">Low Priority</option>
+                    <option value="medium" selected>Medium Priority</option>
+                    <option value="high">High Priority</option>
+                </select>
+                <input type="url" id="taskLink" placeholder="Working Link (Optional)">
+            </div>
+            <button class="btn-add" onclick="addTaskFromInput()">Add Task</button>
+        </div>
+
+        <div id="tasksContainer" class="task-list"></div>
+
+        <div class="dev-terminal">
+            <div class="terminal-header">
+                <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+            </div>
+             <div class="custom-nav"></div>
+            <span class="terminal-label">// quick_access_links.json</span>
+             <div class="custom-nav"></div>
+            <nav class="coding-nav">
+                <div onclick="autoTrack('GitHub', 'https://github.com')" class="code-btn btn-git"><span>git</span> commit -m "push"</div>
+                <div onclick="autoTrack('Stack Overflow', 'https://stackoverflow.com')" class="code-btn btn-stack"><span>stack</span> overflow</div>
+                <div onclick="autoTrack('Python Docs', 'https://www.python.org')" class="code-btn btn-py">import <span>python</span></div>
+                <div onclick="autoTrack('MDN JS', 'https://developer.mozilla.org')" class="code-btn btn-js">const <span>javascript</span></div>
+                <div onclick="autoTrack('C++ Ref', 'https://en.cppreference.com')" class="code-btn btn-cpp">std::<span>c++</span></div>
+            </nav>\
+             <div class="custom-nav"></div>
+               <span class="terminal-label">// quick video acess toll</span>
+                <div class="custom-nav">
+   
+
+                <a href="https://www.youtube.com/@coding_school4u/courses" target="_blank" class="code-btn btn-custom">learn css java script with school 4u</a>
+                <a href="https://www.youtube.com/watch?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w" target="_blank" class="code-btn btn-custom">learn html complete from code with harry</a>
+                <a href="#" target="_blank" class="code-btn btn-custom">Slot_3</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
